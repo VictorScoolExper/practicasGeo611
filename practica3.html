@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Coordinates</title>
+</head>
+<body>
+    <p>Click on the button to get coordinates of your location!</p>
+    <button onclick="getLocation()">Get your location</button>
+    <p id="mapImage"></p>
+
+    <script>
+        var map = document.getElementById("mapImage");
+
+        function getLocation(){
+            if(navigator.geolocation){
+               navigator.geolocation.getCurrentPosition(showPosition);
+            } else{
+                map.innerHTML = "The navigator does not have the capacity to locate you!"
+            }
+        }
+
+        function showPosition(position){
+            console.log(position);
+
+            map.innerHTML = "Latitude: "+position.coords.latitude + "<br>" + "Longitude: "+position.coords.longitude;
+        }
+
+    </script>
+</body>
+</html>
