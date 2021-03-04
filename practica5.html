@@ -33,10 +33,17 @@
     </div>
 
     <script>
+        var informacion1 = "<h1>This is you location!</h1>"
+            informacion1 += "<p><strong>Direccion:</strong> Its a SECRET!! SHHH"
+            informacion1 += "<p><strong>Telephone:</strong>+52 477 710 8600"
 
-        var informacion = "<h1>Universidad DeLaSalle Bajio AC.</h1>"
-            informacion += "<p><strong>Direccion:</strong> Avenida Universidad 602, Lomas Del Campuestre, 37150 Leon, Gto"
-            informacion += "<p><strong>Telephone:</strong>+52 477 710 8600"
+        var informacion2 = "<h1>Universidad DeLaSalle Bajio AC.</h1>"
+            informacion2 += "<p><strong>Direccion:</strong> Blvd. Juan Alonso de Torres Pte. 2002, Valle del Campestre, 37150 León, Gto."
+            informacion2 += "<p><strong>Telephone:</strong>Unknown"
+        
+        var informacion3 = "<h1>Plaza Mayor</h1>"
+            informacion3 += "<p><strong>Direccion:</strong> Avenida Universidad 602, Lomas Del Campuestre, 37150 Leon, Gto"
+            informacion3 += "<p><strong>Telephone:</strong>+52 477 773 4916"
 
 
         function iniciateMap(){
@@ -59,22 +66,63 @@
                         lng: position.coords.longitude
                     }
 
-                    let propertiesMarker = {
-                        position: position1,
-                        map,
-                        title: "Marker"
+                    let position2 = {
+                        lat :  21.152639, 
+                        lng : -101.711598
                     }
 
-                    const marker = new google.maps.Marker(propertiesMarker);
+                    let position3 = {
+                        lat: 21.15872,
+                        lng: -101.69516
+                    }
+
+                    let propertiesMarker1 = {
+                        position: position1,
+                        map,
+                        title: "Marker1"
+                    }
+
+                    let propertiesMarker2 = {
+                        position: position2,
+                        map,
+                        title: "Marker2"
+                    }
+                    
+                    let propertiesMarker3 = {
+                        position: position3,
+                        map,
+                        title: "Marker3"
+                    }
+
+                    const marker1 = new google.maps.Marker(propertiesMarker1);
+                    const marker2 = new google.maps.Marker(propertiesMarker2);
+                    const marker3 = new google.maps.Marker(propertiesMarker3);
 
                     map.setCenter(position1);
 
-                    const infoWindow = new google.maps.InfoWindow({
-                        content : informacion
+                    const infoWindow1 = new google.maps.InfoWindow({
+                        content : informacion1
                     });
+
+                    const infoWindow2 = new google.maps.InfoWindow({
+                        content : informacion2
+                    });
+
+                    const infoWindow3 = new google.maps.InfoWindow({
+                        content : informacion3
+                    });
+
                     //mouseover can be changed to click
-                    marker.addListener("mouseover", ()=>{
-                        infoWindow.open(map, marker);
+                    marker1.addListener("mouseover", ()=>{
+                        infoWindow1.open(map, marker1);
+                    })
+
+                    marker2.addListener("click", ()=>{
+                        infoWindow2.open(map, marker2);
+                    })
+
+                    marker3.addListener("click", ()=>{
+                        infoWindow3.open(map, marker3);
                     })
 
 
