@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch 3</title>
+</head>
+<body>
+
+    <div id="map"></div>
+    
+    <script>
+
+        var coordenandas = {
+            lat: 0,
+            lng: 0
+        };
+
+        var propiedades = {
+            center: coordenandas,
+            zoom: 2
+        };
+
+        function getMarcadores() {
+            const markers = [
+                {
+                    name: "Mexico",
+                    longitude: "-99.1276",
+                    latitude: "19.427"
+                }, {
+                    name: "Brazil",
+                    longitude: "47.9292",
+                    latitude: "-15.7801"
+                }, {
+                    name: "Spain",
+                    longitude: "-3.70327",
+                    latitude: "40.4167"
+                }
+            ];
+
+            return markers;
+        }
+
+
+        function startMap() {
+            const map = new google.maps.Map(document.getElementById("map")), propiedades;
+
+            const marcadores = getMarcadores();
+
+            console.log(marcadores);
+
+            for( marcador of marcadores )
+            {
+                let marker = new google.maps.Marker({
+                    map: map,
+                    position: new google.maps.LatLng(marcador.latitude, marcador.longitude),
+                    title: marcador.name
+                })
+            }
+
+        }
+
+    </script>
+
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAv-m46ebIV9fqkE2fIBGeWunmGmBm2R24&callback=StartMap" async defer></script>
+
+</body>
+</html>
