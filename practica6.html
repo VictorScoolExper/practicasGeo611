@@ -25,6 +25,8 @@
     <div id="map"></div>
 
     <script>
+        var informacion1 = "<h1>Your are here!</h1>"
+           
         var map;
 
         var coordinates = {
@@ -52,7 +54,7 @@
                 icon: icon,
                 map: map
             });
-
+            
             if(navigator.geolocation){
                 //Helps us verify that the 
                 setInterval( () => {
@@ -76,7 +78,21 @@
                     marker.setPosition(pos);
                     map.panTo(pos);
                     map.setCenter(pos)
+
+                    /*
+                    let position1 = pos;
+                    const marker1 = new google.maps.Marker(marker);
+
+                    const infoWindow = new google.maps.InfoWindow({
+                        content : informacion1
+                    });
+
+                    marker.addListener("mouseover", ()=>{
+                        infoWindow.open(map, marker1);
+                    }) */
+                    
                 })
+                
             }
 
         }
