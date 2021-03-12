@@ -25,12 +25,12 @@
 
             response.json().then( function(datos){
                 console.log('datos.json');
-               /* datos.forEach( registro => {
+                datos.forEach( registro => {
                     console.log(registro.country);
                     let nombre = document.createElement("p");
                     nombre.textContent = "Country: " + registro.country + ", Cases:" + registro.cases;
                     paises.appendChild(nombre);
-                }); */
+                }); 
             });
         });
     </script>
