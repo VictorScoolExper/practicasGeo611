@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Mapa de información por país Covid-19, en colaboración con los Alumnos de 6o Semestre de Sistemas de la Universidad DeLasalle Bajío hemos creado un mapa mundial con los casos de Covid-19 en tiempo real</title>
+    <title>Mapa de información por país Covid-19</title>
 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -36,18 +36,11 @@
 
     function iniciaMapa() {
 
-    
-        fetch('paises.json')
-        .then(function(response) {
-
             response.json().then(function(datos) {
     
                 const map = new google.maps.Map(document.getElementById('map'), propiedades);
 
                 console.log(datos);
-
-                datos.forEach( marcador => {
-
 
                     fetch('https://corona.lmao.ninja/v3/covid-19/countries')
                     .then(function(respuesta) {
@@ -82,19 +75,9 @@
                         });
 
                     });
-                    
-
-
-                });
 
 
             });
-    
-        })
-
-        .catch(function(error) {
-            console.log('Hubo un problema con la petición Fetch:' + error.message);
-        });
 
     }
     </script>
