@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Mapa de información por país Covid-19, en colaboración con los Alumnos de 6o Semestre de Sistemas de la Universidad DeLasalle Bajío hemos creado un mapa mundial con los casos de Covid-19 en tiempo real</title>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+    
+        #map {
+        height: 100%;
+        }
+    
+        html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+    </style>
+    </head>
+    <body>
+    <div id="map"></div>
+    <script>
+    
+    var coordenadas = {
+        lat: 0, 
+        lng: 0
+        }
+
+    var propiedades = {
+        center: coordenadas,
+        zoom: 2
+        }
+
+    
+
+    function iniciaMapa() {
+
+    
+        fetch('paises.json')
+        .then(function(response) {
+
+            response.json().then(function(datos) {
+    
+                const map = new google.maps.Map(document.getElementById('map'), propiedades);
+
+                console.log(datos);
+
+                datos.forEach( marcador => {
+
+
+                    fetch('https://corona.lmao.ninja/v3/covid-19/countries')
+                    .then(function(respuesta) {
+
+                        respuesta.json().then(function(datospaises) {
+
+                            datospaises.forEach( registro => {
+
+                                    var informacion = "<strong>Country:</strong> "+ registro.country +"<br><strong>Cases:</strong> " + registro.cases + "<br><strong>New Cases Today:</strong> " + registro.todayCases + "<br><strong>Deaths:</strong> " + registro.deaths + "<br><strong>Deaths Today:</strong> " + registro.todayDeaths + "<br><strong>Reccovered Cases:</strong> " + registro.recovered + "<br><strong>Actives:</strong> " + registro.active + "<br><strong>Críticos:</strong> " + registro.critical + "<br><strong>Cases per Million:</strong> " + registro.casesPerOneMillion;
+
+                                    var infowindow = new google.maps.InfoWindow({
+                                        content: informacion
+                                    });
+
+
+                                    let marker = new google.maps.Marker({
+                                        map: map,
+                                        position: new google.maps.LatLng(registro.CapitalLatitude, registro.CapitalLongitude),
+                                        title: registro.CountryName + registro.cases
+                                    });
+
+
+                                    marker.addListener('click', function() {
+                                        infowindow.open(map, marker);
+                                    });
+
+                                
+                                
+
+                            });
+
+                        });
+
+                    });
+                    
+
+
+                });
+
+
+            });
+    
+        })
+
+        .catch(function(error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+        });
+
+    }
+    </script>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAAlsJ2983bjDq3TMssdgYvf8qm-Fe_8&callback=iniciaMapa"></script>
+    </body>
+</html>
