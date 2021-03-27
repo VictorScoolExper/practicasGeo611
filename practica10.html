@@ -10,6 +10,7 @@
         html,body{
             margin: 0px;
             padding: 0px;
+            background-color:ghostwhite;
         }
 
         #map {
@@ -21,15 +22,15 @@
 <body>
     <div class="container text-center small">
         <div>
-            <h1>Track yourself!</h1>
+            <h1 class="font-weight-bold ">Track yourself!</h1>
         </div>
         <div class="row m-2">
             <div class="col-6">
-                <button class="btn btn-sm btn-primary" id="btnWatch">Watch Position</button>
+                <button class="btn btn-sm btn-success" id="btnWatch">Watch Position</button>
             </div>
 
             <div class="col-6">
-                <button class="btn btn-sm btn-primary" id="btnStop">Stop Watch Position</button>
+                <button class="btn btn-sm btn-danger" id="btnStop">Stop Watch Position</button>
             </div>
         </div>
 
@@ -58,7 +59,7 @@
             var map = new google.maps.Map(mapa, propiedades);
 
             var icon = {
-                url: "https://media.giphy.com/media/M5ZcPMlPz53TFSRrdP/giphy.gif",
+                url: "https://media.giphy.com/media/1aBaG3EedcLMAmFuOU/giphy.gif",
                 scaledSize: new google.maps.Size(25,25),
                 origin: new google.maps.Point(0,0),
                 anchor: new google.maps.Point(0,0)
