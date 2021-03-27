@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch detector Google Maps</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        html,body{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #map {
+            width: 100%;
+            height: 640px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center small">
+        <div>
+            <h1>Track yourself!</h1>
+        </div>
+        <div class="row m-2">
+            <div class="col-6">
+                <button class="btn btn-sm btn-primary" id="btnWatch">Watch Position</button>
+            </div>
+
+            <div class="col-6">
+                <button class="btn btn-sm btn-primary" id="btnStop">Stop Watch Position</button>
+            </div>
+        </div>
+
+        <div class="row m-2"> 
+            <div class="col-12" id="datos"></div>
+        </div>
+
+    </div>
+
+    <div id="map"></div>
+    
+    <script>
+
+        function iniciaMapa(){
+
+            var propiedades = {
+                center: { 
+                     lat: 21.152639, lng:  -101.711598
+                },
+                zoom: 12
+                
+            };
+
+            var mapa = document.getElementById("map");
+
+            var map = new google.maps.Map(mapa, propiedades);
+
+            var icon = {
+                url: "https://media.giphy.com/media/M5ZcPMlPz53TFSRrdP/giphy.gif",
+                scaledSize: new google.maps.Size(25,25),
+                origin: new google.maps.Point(0,0),
+                anchor: new google.maps.Point(0,0)
+            }
+
+            var marker = new google.maps.Marker({
+                position: { lat: 0, lng: 0 },
+                icon: icon,
+                map: map
+            });
+
+            var watchId = null;
+
+            const btnWatch = document.getElementById('btnWatch');
+
+            var positionOptions = {
+                enableHighAccuracy: true,
+                timeout: 10 * 1000, //10 segundos
+                maximumAge: 30 * 1000
+            };
+
+            if(navigator.geolocation){
+                btnWatch.addEventListener('click', function() {
+                    watchId = navigator.geolocation.watchPosition( function (position){
+                        var lat = position.coords.latitude;
+                        var lng = position.coords.longitude;
+
+                        console.log(position);
+
+                        var coordenadas = lat + "," + lng;
+
+                        var exactitud = position.coords.accuracy ? position.coords.accuracy : 'no disponible';
+                        var altitud = position.coords.altitude ? position.coords.accuracy : 'no disponible';
+                        var speed = position.coords.speed ? position.coords.accuracy : 'no disponible';
+                        var dateTime = (new Date(position.timestamp)).toString();
+
+                        const html = `
+                            <p>Coordinates: ${ coordenadas }</p>
+                            <p>Altitude: ${ altitud }</p>
+                            <p>Speed: ${ speed }</p>
+                            <p>Date and Time: ${ dateTime }</p>
+                        `;
+
+                        const datos = document.getElementById('datos');
+                        datos.innerHTML = html;
+
+                        marker.setPosition( new google.maps.LatLng(lat, lng));
+                        map.panTo(  new google.maps.LatLng(lat, lng));
+
+                    }, error, positionOptions);
+                })
+
+                const btnStop = document.getElementById('btnStop');
+                btnStop.addEventListener('click', function() {
+                    if(watchId !== null){
+                        navigator.geolocation.clearWatch(watchId);
+
+                        const html = `<p>The tracker has been Stopped!</p>`;
+
+                        const datos = document.getElementById('datos');
+                        datos.innerHTML = html;
+                    }
+                })
+            }
+
+            function error(positionError) {
+                console.log(positionError);
+            }
+
+        }
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAAlsJ2983bjDq3TMssdgYvf8qm-Fe_8&callback=iniciaMapa" async defer></script>
+</body>
+</html>
