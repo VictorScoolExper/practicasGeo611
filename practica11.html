@@ -58,20 +58,14 @@
             }
 
             var propiedades1 = {
-                center: {
-                    lat: coordenadas.lat,
-                    lng: coordenadas.lng
-                },
+                center: coordenadas,
                 zoom: 12
             };
 
             var mapa1 = new google.maps.Map(document.getElementById('map1'), propiedades1);
 
             var propiedades2 = {
-                center: {
-                    lat: coordenadas.lat,
-                    lng: coordenadas.lng
-                },
+                center: coordenadas,
                 zoom: 12,
                 disableDefualtUI: true
             };
