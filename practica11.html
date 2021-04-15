@@ -72,7 +72,7 @@
             <div class="col-12 col-md-6">
                 <div>
                     <div id="map6"></div>
-                    <p>Map with ControlPosition</p>
+                    <p>Restricting Map Boundaries</p>
                 </div>
             </div>
         </div>
@@ -90,7 +90,6 @@
                 center: coordenadas,
                 zoom: 12
             };
-
             var map1 = new google.maps.Map(document.getElementById('map1'), propiedades1);
 
             var propiedades2 = {
@@ -98,7 +97,6 @@
                 zoom: 12,
                 disableDefaultUI: true
             };
-
             var map2 = new google.maps.Map(document.getElementById('map2'), propiedades2);
 
             var propiedades3 = {
@@ -107,7 +105,6 @@
                 zoomControl: false,
                 scaleControl: false
             };
-
             var map3 = new google.maps.Map(document.getElementById('map3'), propiedades3);
 
             var propiedades4 = {
@@ -119,7 +116,6 @@
                     mapTypeIds : [ 'roadmap', 'satellite', 'terrain' ]
                 }
             };
-
             var map4 = new google.maps.Map(document.getElementById('map4'), propiedades4);
 
             var propiedades5 = {
@@ -140,13 +136,27 @@
                     position : google.maps.ControlPosition.LEFT_TOP
                 },
                 fullscreenControl : true,
-                
+
                 
             };
-
             var map5 = new google.maps.Map(document.getElementById('map5'), propiedades5);
 
+            var limits = {
+                north : 21.39,
+                south : 20.85,
+                west : -102.14,
+                east : -101.10
+            }
 
+            var propiedades6 = {
+                center: coordenadas,
+                zoom: 12,
+                restriction : {
+                    latLngBounds : limites,
+                    strictBounds : false
+                }
+            };
+            var map6 = new google.maps.Map(document.getElementById('map6'), propiedades6);
         }
     </script>
 
