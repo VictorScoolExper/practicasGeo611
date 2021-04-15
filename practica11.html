@@ -13,17 +13,17 @@
             background-color:ghostwhite;
         }
 
-        #map {
+        #map1, #map2, #map3, #map4, #map5, #map6 {
             width: 100%;
-            height: 640px;
+            height: 340px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container-fluid">
+    <div class="container-fluid m-2 text-center">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
                 <div>
                     <h1>Types of Control of Maps</h1>
                 </div>
@@ -33,24 +33,50 @@
         <div class="row">
             <div class="col-12 col-md-6">
                 <div>
-                    <div id="mapa1"></div>
+                    <div id="map1"></div>
                     <p>Map with normal Controls</p>
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div>
+                    <div id="map2"></div>
+                    <p>Map without Controls</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
         function iniciaMapa(){
-            var propiedades = {
+            var coordenadas = {
+                lat: 21.152639,
+                lng: -101.711598
+            }
+
+            var propiedades1 = {
                 center: {
-                    lat: 21.152639,
-                    lng: -101.711598
+                    lat: coordenadas.lat,
+                    lng: coordenadas.lng
                 },
                 zoom: 12
             };
 
-            var mapa1 = new google.maps.Map(document.getElementById('map1'), propiedades);
+            var mapa1 = new google.maps.Map(document.getElementById('map1'), propiedades1);
+
+            var propiedades2 = {
+                center: {
+                    lat: coordenadas.lat,
+                    lng: coordenadas.lng
+                },
+                zoom: 12,
+                disableDefualtUI: true
+            };
+
+            var mapa1 = new google.maps.Map(document.getElementById('map2'), propiedades2);
 
 
         }
