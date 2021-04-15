@@ -61,6 +61,21 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div>
+                    <div id="map5"></div>
+                    <p>Map with ControlPosition</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div>
+                    <div id="map6"></div>
+                    <p>Map with ControlPosition</p>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -106,6 +121,23 @@
             };
 
             var map4 = new google.maps.Map(document.getElementById('map4'), propiedades4);
+
+            var propiedades5 = {
+                center: coordenadas,
+                zoom: 12,
+                mapTypeControl: true,
+                mapTypeControlOptions : {
+                    style : google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+                    position : google.maps.ControlPosition.TOP_RIGHT
+                },
+                zoomControl : true,
+                zoomControlOption : {
+                    position : google.maps.ControlPosition.RIGHT_CENTER
+                }
+                
+            };
+
+            var map5 = new google.maps.Map(document.getElementById('map5'), propiedades5);
 
 
         }
