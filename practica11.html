@@ -37,13 +37,27 @@
                     <p>Map with normal Controls</p>
                 </div>
             </div>
+
+            <div class="col-12 col-md-6">
+                <div>
+                    <div id="map2"></div>
+                    <p>Map without Controls</p>
+                </div>
+            </div>
         </div>
 
         <div class="row">
             <div class="col-12 col-md-6">
                 <div>
-                    <div id="map2"></div>
-                    <p>Map without Controls</p>
+                    <div id="map3"></div>
+                    <p>Zoom disabled Button</p>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div>
+                    <div id="map4"></div>
+                    <p>Map with ControlOptions</p>
                 </div>
             </div>
         </div>
@@ -67,10 +81,31 @@
             var propiedades2 = {
                 center: coordenadas,
                 zoom: 12,
-                disableDefualtUI: true
+                disableDefaultUI: true
             };
 
             var mapa1 = new google.maps.Map(document.getElementById('map2'), propiedades2);
+
+            var propiedades3 = {
+                center: coordenadas,
+                zoom: 12,
+                zoomControl: false,
+                scaleControl: false
+            };
+
+            var mapa1 = new google.maps.Map(document.getElementById('map3'), propiedades3);
+
+            var propiedades4 = {
+                center: coordenadas,
+                zoom: 12,
+                mapTypeControl: true,
+                mapTypeControlOptions: {
+                    style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    mapTypeIds : [ 'roadmap', 'satellite', 'terrain' ]
+                }
+            };
+
+            var mapa1 = new google.maps.Map(document.getElementById('map4'), propiedades4);
 
 
         }
