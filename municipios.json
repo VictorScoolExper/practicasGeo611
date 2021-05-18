@@ -12,33 +12,33 @@
       "habitantes": 1655015
     },
     {
-          "nombre": "Guadalajara",
+       "nombre": "Guadalajara",
       "estado": "Jalisco",
       "coordenadas": {"lat": 20.676012, "lng": -103.335069},
        "habitantes": 1495182
     },
     {
-          "nombre": "Puebla",
+       "nombre": "Puebla",
       "estado": "Puebla",
       "coordenadas": {"lat": 19.041325, "lng": -98.210819},
        "habitantes": 1434062
     },
     {
-          "nombre": "Tijuana",
+      "nombre": "Tijuana",
       "estado": "Baja California Norte",
       "coordenadas": {"lat": 32.503573, "lng": -116.967028},
        "habitantes": 1321004      
     },
     {
-          "nombre": "Juárez",
+      "nombre": "Juárez",
       "estado": "Chihuahua",
       "coordenadas": {"lat": 31.668894, "lng": -106.412507},
-       "habitantes": 1300983
+      "habitantes": 1300983
     },
     {
-          "nombre": "León",
+      "nombre": "León",
       "estado": "Guanajuato",
       "coordenadas": {"lat": 21.128611, "lng": -101.667725},
-       "habitantes": 1238962
+      "habitantes": 1238962
     }
   ]
