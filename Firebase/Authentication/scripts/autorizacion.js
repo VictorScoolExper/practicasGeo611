@@ -95,5 +95,22 @@ entrarGoogle = () =>{
         var token = result.credential.accessToken;
 
         console.log(token);
+
+        var user = result.user;
+
+        let html = `
+            <p>Name: ${user.displayName}</p>
+            <p>Email: ${user.email}</p>
+            <img src="${user.photoURL}">
+
+        `;
+
+        datosdelacuenta.innerHTML = html;
+
+        $('#ingresarModal').modal('hide');
+        formaingresar.reset();
+        formaingresar.querySelector('.error').innerHTML = '';
+    }).catch( function(error){
+        console.log(error);
     })
 }
