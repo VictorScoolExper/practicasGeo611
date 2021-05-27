@@ -26,34 +26,8 @@ const configurarMenu = (user) =>{
 };
 
 
-const listadeplatillos = document.getElementById('listadeplatillos');
 
-const obtienePlatillos = (data) => {
-    if(data.length){
-        let html = '';
 
-        data.forEach( doc => {
-            const platillo = doc.data();
-
-            const columna =`
-                <div class="col-12 col-md-4">
-                    <img src="imagenes/${platillo.imagen}" alt="${platillo.nombre}">
-                    <p>${platillo.nombre}</p>
-                    <p class="text-danger">$${platillo.precio}</p>
-                    <a href="https://www.paypal.me/grupohernandezalba/${platillo.precio}" target="_blank">
-                        <button class="btn btn-primary">Pay Now</button>
-                    </a>
-                </div>
-            
-            `;
-
-            html += columna;
-
-        });
-
-        listadeplatillos.innerHTML = html;
-    } 
-    else {
-        listadeplatillos.innerHTML = '<p class="text-center"> To see items please enter with account </p>'
-    }
+const obtieneAmigos = (data) => {
+    console.log(data);
 };

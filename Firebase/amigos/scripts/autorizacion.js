@@ -15,13 +15,13 @@ auth.onAuthStateChanged(user =>{
             })
         }
         
-        db.collection('platillos').onSnapshot( snapshot =>{
-            obtienePlatillos(snapshot.docs);
+        db.collection('usuarios').onSnapshot( snapshot =>{
+            obtieneAmigos(snapshot.docs);
         });
         configurarMenu(user);
 
     }else{
-        obtienePlatillos([]);
+        obtieneAmigos([]);
         configurarMenu();
     }
 });
