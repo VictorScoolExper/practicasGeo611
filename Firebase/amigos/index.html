@@ -203,19 +203,7 @@
 
       const db = firebase.firestore();
 
-      function iniciaMapa(){
-
-        var propiedades = { 
-            center: { 
-                        lat: 21.152639, lng: -101.711598 
-                    }, 
-            zoom: 14 
-        }
-
-        var mapa =  document.getElementById("map")
-        var map = new google.maps.Map(mapa, propiedades);
-
-        }
+      
 
     </script>
 
@@ -223,6 +211,6 @@
     <script src="scripts/index.js"></script>
 
     <!-- Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAAlsJ2983bjDq3TMssdgYvf8qm-Fe_8&callback=iniciaMapa" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAAlsJ2983bjDq3TMssdgYvf8qm-Fe_8" async defer></script>
   </body>
 </html>
