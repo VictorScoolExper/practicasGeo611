@@ -1,6 +1,18 @@
 auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
+        if(navigator.geolocation.getCurrentPosition(position =>{
+            var pos = {
+                lat : position.coords.latitude,
+                lng : position.coords.longitude
+            };
+
+            db.collection('usuarios').doc(user.uid).update({
+                coordenadas : pos
+            });
+
+        }))
+
         db.collection('platillos').onSnapshot( snapshot =>{
             obtienePlatillos(snapshot.docs);
         });
