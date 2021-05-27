@@ -10,7 +10,7 @@ const configurarMenu = (user) =>{
             <p>Email: ${user.email}</p>
             <p>Phone: ${doc.data().telefono}</p>
             <p>Direction: ${doc.data().direccion}</p>
-            <p>Coordenadas: ${doc.data().coordenadas.latitude} , ${doc.data().coordenadas.longitude}</p>
+            <p>Coordenadas: ${doc.data().coordenadas.lat} , ${doc.data().coordenadas.lng}</p>
             `;
 
             datosdelacuenta.innerHTML = html;
