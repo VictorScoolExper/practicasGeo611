@@ -21,7 +21,7 @@
         #map {
             height: 500px;
             width: 80%;
-            border-radius: 25%;
+            border-radius: 5%;
         }
     </style>
 </head>
@@ -33,9 +33,9 @@
                 <h1>Places por ubicación</h1>
             </div>
         </div>
-        <div class="row" style="text-align: center;">
+        <div class="row">
             <div class="col-12 m-3">
-                <div id="map"></div>
+                <div id="map" style="text-align: center;"></div>
             </div>
             <div class="col-12">
                 <select name="tipo" id="tipo" class="form-control">
@@ -51,8 +51,6 @@
     
 
     <script>
-
-
         var map;
 
         var markers = [];
@@ -70,7 +68,6 @@
             map = new google.maps.Map(document.getElementById('map'),propiedades);
 
             muestraLugares();
-
         }
 
         var tipo = document.getElementById('tipo');
@@ -164,7 +161,6 @@
             while( placesList.hasChildNodes()){
                 placesList.removeChild(placesList.firstChild);
             }
-
         }
 
     </script>
@@ -172,7 +168,6 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAAlsJ2983bjDq3TMssdgYvf8qm-Fe_8&libraries=places&callback=iniciaMapa" async defer></script>
 
 </body>
