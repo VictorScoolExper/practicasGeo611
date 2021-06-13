@@ -1,14 +1,14 @@
 const listloggedout = document.querySelectorAll('.logged-out');
-const listaloggedin = document.querySelectorAll('.logged-in');
+const listloggedin = document.querySelectorAll('.logged-in');
 const datosdelacuenta = document.querySelector('.datosdelacuenta');
 
 const configurarMenu = (user) =>{
     if(user){
 
-        listaloggedin.forEach(item => item.style.display = 'block');
+        listloggedin.forEach(item => item.style.display = 'block');
         listloggedout.forEach(item => item.style.display = 'none');
     } else {
-        listaloggedin.forEach(item => item.style.display = 'none');
+        listloggedin.forEach(item => item.style.display = 'none');
         listloggedout.forEach(item => item.style.display = 'block');
     }
 
