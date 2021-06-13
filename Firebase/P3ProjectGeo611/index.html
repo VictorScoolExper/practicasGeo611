@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Survey Dimbasa</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Dimbasa</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+              <li class="nav-item logged-in">
+                <a class="nav-link" href="#" id="mapa">Mapa</a>
+              </li>
+
+              <li class="nav-item logged-in">
+                <a class="nav-link" href="#" id="">Revisar Encuesta</a>
+              </li>
+
+              <li class="nav-item logged-out">
+                <a class="nav-link" href="./pages/tomarEncuesta.html" id="">Tomar Encuesta</a>
+              </li>
+
+              <li class="nav-item logged-in">
+                <a class="nav-link" href="#" id="salir">Salir</a>
+              </li>
+              
+            </ul>
+           
+          </div>
+        </div>
+    </nav>
+
+    <br/>
+
+   
+    <div class="row logged-out">
+        <div class=" align-middle p-5" style="width: 70%; background-color: darkgray; border-radius: 0px 25px 25px 0;">
+            <h1>Dimabasa</h1>
+            <p>Bienvido al centro de control, esta pagina nomas es para usuarios autorizados!!</p>
+        </div>
+
+        <div class="align-middle p-1">
+                
+            <div class="col-8 d-grid gap-2 mx-auto p-3">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ingresarModal">Login</button>
+            </div>
+        </div>
+    </div>
+
+   
+    <!-- Modal Login-->
+  <div class="modal fade" id="ingresarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formLogin">
+            <div class="row">
+              <div class="col-12 m-2"> 
+                <input type="email" id="correo" required class="form-control" placeholder="Enter your email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 m-2"> 
+                <input type="password" id="contrasena" required class="form-control" placeholder="Enter your password">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 m-2 text-center"> 
+                <Button class="btn btn-primary">Login</Button>
+                <p class="error text-danger"></p>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row text-center" id="listadeEncuestasResultados">
+
+    </div>
+  </div>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+    <script src="scripts/basedeDatos.js"></script>
+    <script src="scripts/autorizacionIndex.js"></script>
+
+  </body>
+</html>

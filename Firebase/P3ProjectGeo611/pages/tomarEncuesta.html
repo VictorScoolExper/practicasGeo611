@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Survey Damasa</title>
+  </head>
+  <body>
+    <div class="container logged-out">
+      <div>
+          <div class="col-12 text-center">
+            <h1>Dimabasa Encuesta</h1>
+          </div>
+            
+          <div class="col-12 text-center">
+            <img src="https://cdn.pixabay.com/photo/2018/03/19/13/43/feedback-3240007_1280.jpg" alt="Hello" style="width: 80%; border-radius: 25px;">
+          </div>
+
+          <div class="col-8 d-grid gap-2 mx-auto p-3">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ingresarModal">Ingresar</button>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="container logged-in">
+
+      <div class="guisado-show">
+        <div class="col-12">
+          <h1>Ingrese los nombres de los guisado</h1>
+        </div>
+  
+        <div class="col-12 p-2">
+          <button type="button" class="col-12 btn btn-primary" data-bs-toggle="modal" data-bs-target="#guisadoModal">Ingresa Los Guisados</button>
+        </div>
+
+      </div>
+
+      <div class="btnGuisados">
+        <div class="row">
+          <h1>Calificanos Por Favor!</h1>
+          <button data-bs-toggle="modal" data-bs-target="#ratingModalGuisado1" id="buttonGuisado1" class="col-8 m-2 btn btn-primary btnGuisado1"></button>
+          <button data-bs-toggle="modal" data-bs-target="#ratingModalGuisado2" id="buttonGuisado2" class="col-8 m-2 btn btn-primary btnGuisado2"></button>
+        </div>
+
+      </div>
+      
+    </div>
+
+  <!-- Modal Rating Screen Guisado1-->
+  <div class="modal fade" id="ratingModalGuisado1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Rating</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h2 id="titleGuisado"></h2>
+            <div class="col-12" id="ratingSection">
+              <i type="button" id="btnfrown1" style="font-size: 900%; color: darkred;" class="fa fa-frown-o p-2" aria-hidden="true"></i>
+              <i type="button" id="btnStraight1"  style="font-size: 900%; color: yellow;" class="fa fa-meh-o p-2" aria-hidden="true"></i>
+              <i type="button" id="btnSmile1"  style="font-size: 900%; color:green" class="fa fa-smile-o p-2" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Rating Screen Guisado2-->
+  <div class="modal fade" id="ratingModalGuisado2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Rating</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formRating">
+            <h2 id="titleGuisado"></h2>
+            <div class="col-12" id="ratingSection">
+              <i type="button" id="btnfrown2" style="font-size: 900%; color: darkred;" class="fa fa-frown-o p-2" aria-hidden="true"></i>
+              <i type="button" id="btnStraight2"  style="font-size: 900%; color: yellow;" class="fa fa-meh-o p-2" aria-hidden="true"></i>
+              <i type="button" id="btnSmile2"  style="font-size: 900%; color:green" class="fa fa-smile-o p-2" aria-hidden="true"></i>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal Ingresar Guisado-->
+    <div class="modal fade" id="guisadoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="formGuisado">
+              <div class="row">
+                <div class="col-12 m-2"> 
+                  <input type="text" id="guisado1" required class="form-control" placeholder="Guisado Uno">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 m-2"> 
+                  <input type="text" id="guisado2" required class="form-control" placeholder="Guisado Dos">
+                </div>
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="checkGuisado">
+                <label class="form-check-label" for="checkGuisado">Guisados Verifcados!</label>
+              </div>
+              <div class="row">
+                <div class="col-12 m-2 text-center"> 
+                  <Button class="btn btn-primary">Enviar!</Button>
+                  <p class="error text-danger"></p>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Modal Ingresar-->
+  <div class="modal fade" id="ingresarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formLogin">
+            <div class="row">
+              <div class="col-12 m-2"> 
+                <input type="email" id="correo" required class="form-control" placeholder="Enter your email">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 m-2"> 
+                <input type="password" id="contrasena" required class="form-control" placeholder="Enter your password">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 m-2 text-center"> 
+                <Button class="btn btn-primary">Login</Button>
+                <p class="error text-danger"></p>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+    <script src="../scripts/basedeDatos.js"></script>
+    <script src="../scripts/autorizacionEncuesta.js"></script>
+    <script src="../scripts/tomarEncuesta.js"></script>
+
+  </body>
+</html>
