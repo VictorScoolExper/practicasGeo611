@@ -1,46 +1,57 @@
-const listloggedout = document.querySelectorAll('.logged-out');
-const listloggedin = document.querySelectorAll('.logged-in');
+const listaloggedout = document.querySelectorAll('.logged-out');
+const listaloggedin = document.querySelectorAll('.logged-in');
 const datosdelacuenta = document.querySelector('.datosdelacuenta');
 
-const configurarMenu = (user) =>{
+const configuraMenu = (user) => {
     if(user){
+       /*db.collection('usuarios').doc(user.uid).get().then( doc =>{
+           const html = `
+               <p>Nombre: ${ doc.data().nombre }</p>
+               <p>Correo: ${ user.email}</p>
+               <p>Teléfono: ${ doc.data().telefono }</p>
+               <p>Dirección: ${ doc.data().direccion }</p>
+               <p>Coordenadas: ${ doc.data().coordenadas.latitude } , ${ doc.data().coordenadas.longitude }</p>
+           `;
+           datosdelacuenta.innerHTML = html;
+       });*/
 
-        listloggedin.forEach(item => item.style.display = 'block');
-        listloggedout.forEach(item => item.style.display = 'none');
-    } else {
-        listloggedin.forEach(item => item.style.display = 'none');
-        listloggedout.forEach(item => item.style.display = 'block');
+       listaloggedin.forEach( item => item.style.display = 'block');
+       listaloggedout.forEach( item => item.style.display = 'none');
     }
-
-};
-
-
-
-
-const obtieneAmigos = (data) => {
-    console.log(data);
-    var propiedades = { 
-        center: { 
-                    lat: 21.152639, lng: -101.711598 
-                }, 
-        zoom: 14 
+    else
+    {
+       
+       listaloggedin.forEach( item => item.style.display = 'none');
+       listaloggedout.forEach( item => item.style.display = 'block');
     }
+}
 
-    var mapa =  document.getElementById("map")
-    var map = new google.maps.Map(mapa, propiedades);
+const obtieneAmigos = (data) =>{
 
-    data.forEach(doc => {
-        informacion = new google.maps.InfoWindow;
+   var propiedades = { 
+       center: { 
+                   lat: 21.152639, lng: -101.711598 
+               }, 
+       zoom: 14 
+   }
 
-        var pos = {
-            lat: doc.data().coordenadas.lat,
-            lng: doc.data().coordenadas.lng
-        }
+   var mapa =  document.getElementById("map")
+   var map = new google.maps.Map(mapa, propiedades);
 
-        informacion.setPosition(pos);
-        informacion.setContent(doc.data().nombre);
-        informacion.open(map);
 
-    });
+   data.forEach( doc => {
+       
+       informacion = new google.maps.InfoWindow;
+
+       var pos = { 
+           lat: doc.data().coordenadas.latitude,
+           lng: doc.data().coordenadas.longitude
+       };
+
+       informacion.setPosition(pos);
+       informacion.setContent(doc.data().nombre);
+       informacion.open(map);
+
+   });
 
 };

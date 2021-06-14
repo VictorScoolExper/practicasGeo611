@@ -1,130 +1,86 @@
-auth.onAuthStateChanged(user =>{
-    console.log(user);
+auth.onAuthStateChanged( user =>{
+ 
     if(user){
+        console.log('Usuario entró');
+
         if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(position =>{
-                var pos = {
-                    lat : position.coords.latitude,
-                    lng : position.coords.longitude
-                };
-    
+
+            navigator.geolocation.getCurrentPosition( position =>{
+                
+
                 db.collection('usuarios').doc(user.uid).update({
-                    coordenadas : pos
+                    coordenadas : {
+                        latitude : position.coords.latitude,
+                        longitude : position.coords.longitude
+                    }
                 });
-    
-            })
+
+            });
         }
-        
-        db.collection('usuarios').onSnapshot( snapshot =>{
+
+        db.collection('usuarios').onSnapshot(snapshot =>{
             obtieneAmigos(snapshot.docs);
+            configuraMenu(user);
+        }, err => {
+            console.log(err.message);
         });
-        configurarMenu(user);
 
-    }else{
+    }
+    else{
+        console.log('Usuario salió');
         obtieneAmigos([]);
-        configurarMenu();
-    }
-});
-
-const formaingresar = document.getElementById('formLogin');
-
-formaingresar.addEventListener('submit', (e)=>{
-    e.preventDefault();
-
-    let correo = formaingresar['correo'].value;
-    let contrasena = formaingresar['contrasena'].value;
-
-    auth.signInWithEmailAndPassword(correo, contrasena).then(cred =>{
-        console.log(cred);
-
-        $('#ingresarModal').modal('hide');
-        formaingresar.reset();
-        formaingresar.querySelector('.error').innerHTML="";
-    }).catch(err => {
-        formaingresar.querySelector('.error').innerHTML=mensajeError(err.code);
-        console.log(err);
-    });
-});
-
-function mensajeError(codigo){
-    let message = '';
-    switch(codigo){
-        case 'auth/wrong-password':
-            message = "Su contrasena no es correcta";
-        break;
-        case 'auth/user-not-found':
-            message = "Usuario no encontrado";
-        break;
-        case 'auth/weak-password':
-            message = "Contrasena debil";
-        break;
-       default: 
-        message = 'Ocurrio un error al ingresar con este usuario'; 
-
+        configuraMenu();
     }
 
-    return message;
-}
+});
+
 
 const salir = document.getElementById('salir');
 
 salir.addEventListener('click', (e)=>{
     e.preventDefault();
-
-    auth.signOut().then( ()=>{
-            alert('You have closed the sesion');
+    auth.signOut().then(()=>{
+        alert("El usuario ha salido del sistema");
     });
-    obtienePlatillos([]);
+
 });
 
-const formaregistrate = document.getElementById("formRegister");
 
-formaregistrate.addEventListener('submit',(e)=>{
+function mensajeError(codigo) {
+
+    let mensaje = '';
+
+    switch(codigo) {
+        case 'auth/wrong-password':
+          mensaje = 'Su contraseña no es correcta';
+          break;
+        case 'auth/user-not-found':
+            mensaje = 'El usuario no existe o el correo no esta registrado';
+            break;
+        case 'auth/weak-password':
+            mensaje = 'Contraseña débil debe tener al menos 6 caracteres';
+            break;
+        default:
+            mensaje = 'Ocurrió un error al ingresar con este usuario';
+      }
+    return mensaje;
+  }
+
+const formaingresar =  document.getElementById('formLogin');
+
+formaingresar.addEventListener('submit',(e)=>{
     e.preventDefault();
+    let correo = formaingresar['correo'].value;
+    let contrasena = formaingresar['contrasena'].value;
 
-    const correo = formaregistrate['rcorreo'].value;
-    const constrasena = formaregistrate['rcontrasena'].value;
+    auth.signInWithEmailAndPassword(correo,contrasena).then( cred =>{
 
-    auth.createUserWithEmailAndPassword(correo, constrasena).then( cred => {
-        console.log('se creo el usuario');
-        return db.collection('usuarios').doc(cred.user.uid).set({
-            nombre: formaregistrate['rnombre'].value,
-            telefono: formaregistrate['rtelefono'].value,
-            direccion: formaregistrate['rdireccion'].value
-        });
-    }).then(()=>{
-        $('#registrateModal').modal('hide');
-        formaregistrate.reset();
-        formaregistrate.querySelector('.error').innerHTML='';
-    }).catch(err =>{
-        formaregistrate.querySelector('.error').innerHTML=mensajeError(err.code);
-    })
-
-});
-
-entrarGoogle = () =>{
-    var provider = new firebase.auth.GoogleAuthProvider();
-
-    firebase.auth().signInWithPopup(provider).then( function(result){
-        var token = result.credential.accessToken;
-
-        console.log(token);
-
-        var user = result.user;
-
-        let html = `
-            <p>Name: ${user.displayName}</p>
-            <p>Email: ${user.email}</p>
-            <img src="${user.photoURL}">
-
-        `;
-
-        datosdelacuenta.innerHTML = html;
-
-        $('#ingresarModal').modal('hide');
+        $('#ingresarmodal').modal('hide');
         formaingresar.reset();
         formaingresar.querySelector('.error').innerHTML = '';
-    }).catch( function(error){
-        console.log(error);
-    })
-}
+    }).catch( err => {
+        formaingresar.querySelector('.error').innerHTML = mensajeError(err.code);
+        console.log(err);
+    });
+    
+});

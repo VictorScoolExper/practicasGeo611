@@ -74,4 +74,57 @@ salir.addEventListener('click', (e)=>{
     auth.signOut().then( ()=>{
             alert('You have closed the sesion');
     });
+    obtienePlatillos([]);
 });
+
+const formaregistrate = document.getElementById("formRegister");
+
+formaregistrate.addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    const correo = formaregistrate['rcorreo'].value;
+    const constrasena = formaregistrate['rcontrasena'].value;
+
+    auth.createUserWithEmailAndPassword(correo, constrasena).then( cred => {
+        console.log('se creo el usuario');
+        return db.collection('usuarios').doc(cred.user.uid).set({
+            nombre: formaregistrate['rnombre'].value,
+            telefono: formaregistrate['rtelefono'].value,
+            direccion: formaregistrate['rdireccion'].value
+        });
+    }).then(()=>{
+        $('#registrateModal').modal('hide');
+        formaregistrate.reset();
+        formaregistrate.querySelector('.error').innerHTML='';
+    }).catch(err =>{
+        formaregistrate.querySelector('.error').innerHTML=mensajeError(err.code);
+    })
+
+});
+
+entrarGoogle = () =>{
+    var provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then( function(result){
+        var token = result.credential.accessToken;
+
+        console.log(token);
+
+        var user = result.user;
+
+        let html = `
+            <p>Name: ${user.displayName}</p>
+            <p>Email: ${user.email}</p>
+            <img src="${user.photoURL}">
+
+        `;
+
+        datosdelacuenta.innerHTML = html;
+
+        $('#ingresarModal').modal('hide');
+        formaingresar.reset();
+        formaingresar.querySelector('.error').innerHTML = '';
+    }).catch( function(error){
+        console.log(error);
+    })
+}
