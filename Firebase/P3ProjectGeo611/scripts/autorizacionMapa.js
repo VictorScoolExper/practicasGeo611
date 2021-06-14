@@ -2,7 +2,7 @@ auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
         if(navigator.geolocation){
-            navigator.geolocation.watchPosition(position =>{
+            navigator.geolocation.getCurrentPosition(position =>{
                 var pos = {
                     Latitude : position.coords.latitude,
                     Longitude : position.coords.longitude
