@@ -21,7 +21,7 @@ const obtieneAmigos = (data) => {
     console.log(data);
     var propiedades = { 
         center: { 
-                    lat: 21.152639, lng: -101.711598 
+                    Latitude: 21.152639, Longitude: -101.711598 
                 }, 
         zoom: 14 
     }

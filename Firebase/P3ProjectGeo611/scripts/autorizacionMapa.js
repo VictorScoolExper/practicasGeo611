@@ -74,5 +74,4 @@ salir.addEventListener('click', (e)=>{
     auth.signOut().then( ()=>{
             alert('You have closed the sesion');
     });
-    obtienePlatillos([]);
 });
