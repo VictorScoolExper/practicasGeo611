@@ -21,7 +21,7 @@ const obtieneAmigos = (data) => {
     console.log(data);
     var propiedades = { 
         center: { 
-                    Latitude: 21.152639, Longitude: -101.711598 
+                    lat: 21.152639, lng: -101.711598 
                 }, 
         zoom: 14 
     }
@@ -33,8 +33,8 @@ const obtieneAmigos = (data) => {
         informacion = new google.maps.InfoWindow;
 
         var pos = {
-            Latitude: doc.data().coordenadas.Latitude,
-            Longitude: doc.data().coordenadas.Longitude
+            lat: doc.data().coordenadas.lat,
+            lng: doc.data().coordenadas.lng
         }
 
         informacion.setPosition(pos);
