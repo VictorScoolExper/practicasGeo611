@@ -4,8 +4,8 @@ auth.onAuthStateChanged(user =>{
         if(navigator.geolocation){
             navigator.geolocation.watchPosition(position =>{
                 var pos = {
-                    lat : position.coords.latitude,
-                    lng : position.coords.longitude
+                    Latitude : position.coords.latitude,
+                    Longitude : position.coords.longitude
                 };
     
                 db.collection('usuarios').doc(user.uid).update({
