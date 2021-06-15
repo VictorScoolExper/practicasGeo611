@@ -26,22 +26,22 @@ auth.onAuthStateChanged(user =>{
     }
 });
 
-const formaingresar = document.getElementById('formLogin');
+const formLogin = document.getElementById('formLogin');
 
-formaingresar.addEventListener('submit', (e)=>{
+formLogin.addEventListener('submit', (e)=>{
     e.preventDefault();
 
-    let correo = formaingresar['correo'].value;
-    let contrasena = formaingresar['contrasena'].value;
+    let correo = formLogin['correo'].value;
+    let contrasena = formLogin['contrasena'].value;
 
     auth.signInWithEmailAndPassword(correo, contrasena).then(cred =>{
         console.log(cred);
 
         $('#ingresarModal').modal('hide');
-        formaingresar.reset();
-        formaingresar.querySelector('.error').innerHTML="";
+        formLogin.reset();
+        formLogin.querySelector('.error').innerHTML="";
     }).catch(err => {
-        formaingresar.querySelector('.error').innerHTML=mensajeError(err.code);
+        formLogin.querySelector('.error').innerHTML=mensajeError(err.code);
         console.log(err);
     });
 });
@@ -101,30 +101,3 @@ formaregistrate.addEventListener('submit',(e)=>{
     })
 
 });
-
-entrarGoogle = () =>{
-    var provider = new firebase.auth.GoogleAuthProvider();
-
-    firebase.auth().signInWithPopup(provider).then( function(result){
-        var token = result.credential.accessToken;
-
-        console.log(token);
-
-        var user = result.user;
-
-        let html = `
-            <p>Name: ${user.displayName}</p>
-            <p>Email: ${user.email}</p>
-            <img src="${user.photoURL}">
-
-        `;
-
-        datosdelacuenta.innerHTML = html;
-
-        $('#ingresarModal').modal('hide');
-        formaingresar.reset();
-        formaingresar.querySelector('.error').innerHTML = '';
-    }).catch( function(error){
-        console.log(error);
-    })
-}
