@@ -16,21 +16,13 @@ formguisado.addEventListener('submit', (e)=>{
     guisado1 = formguisado['guisado1'].value;
     guisado2 = formguisado['guisado2'].value;
 
-    // Add a new document with a generated id.
-    db.collection("guisados").add({
-        guisadoUno: guisado1,
-        guisadoDos: guisado2,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    })
-    .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-        console.error("Error adding document: ", error);
-    });
-
     btnGuisado1.innerHTML = guisado1;
     btnGuisado2.innerHTML = guisado2;
+
+    btnGuisadosRating.forEach(item => item.style.display = 'block');
+    btnGuisadoFinal.forEach(item => item.style.display = 'block');
+
+    $('#guisadoModal').modal('hide');
 });
 
 let rateCountFrown1 = 0;
@@ -46,6 +38,7 @@ btnfrown1.addEventListener('click',(e)=>{
     rateCountFrown1 = rateCountFrown1 + 1;
 
     //console.log(rateCountFrown1);
+    $('#ratingModalGuisado1').modal('hide');
 });
 
 btnstraight1.addEventListener('click',(e)=>{
@@ -54,6 +47,8 @@ btnstraight1.addEventListener('click',(e)=>{
     rateCountStraight1 = rateCountStraight1 + 1;
 
     //console.log(rateCountStraight1);
+
+    $('#ratingModalGuisado1').modal('hide');
 });
 
 btnSmile1.addEventListener('click', (e)=>{
@@ -62,6 +57,7 @@ btnSmile1.addEventListener('click', (e)=>{
     rateCountSmile1 = rateCountSmile1 + 1;
 
     //console.log(rateCountSmile1);
+    $('#ratingModalGuisado1').modal('hide');
 })
 
 
@@ -77,7 +73,7 @@ btnfrown2.addEventListener('click',(e)=>{
 
     rateCountFrown2 = rateCountFrown2 + 1;
 
-    console.log(rateCountFrown2);
+    $('#ratingModalGuisado2').modal('hide');
 });
 
 btnstraight2.addEventListener('click',(e)=>{
@@ -86,6 +82,7 @@ btnstraight2.addEventListener('click',(e)=>{
     rateCountStraight2 = rateCountStraight2 + 1;
 
     console.log(rateCountStraight2);
+    $('#ratingModalGuisado2').modal('hide');
 });
 
 btnSmile2.addEventListener('click', (e)=>{
@@ -94,6 +91,34 @@ btnSmile2.addEventListener('click', (e)=>{
     rateCountSmile2 = rateCountSmile2 + 1;
 
     console.log(rateCountSmile2);
+    $('#ratingModalGuisado2').modal('hide');
+});
+
+const btnPreSend = document.getElementById('btnPreSend');
+
+btnPreSend.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    // Add a new document with a generated id.
+    db.collection("guisados").add({
+        guisadoUno: guisado1,
+        gui1rating1: rateCountFrown1,
+        gui1rating2: rateCountStraight1,
+        gui1rating3: rateCountSmile1,
+        guisadoDos: guisado2,
+        gui2rating1: rateCountFrown2,
+        gui2rating2: rateCountStraight2,
+        gui2rating3: rateCountSmile2,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then((docRef) => {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+
+    alert("Se agrego la encuesta del dia de hoy a la base de datos!");
+
 })
 
 

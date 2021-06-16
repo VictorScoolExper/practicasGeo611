@@ -1,5 +1,9 @@
 const listaloggedout = document.querySelectorAll('.logged-out');
 const listaloggedinGuisados= document.querySelectorAll('.logged-in-guisados');
+const listaloggedinIngresaGuisados= document.querySelectorAll('.logged-in-ingresa-guisado');
+const btnGuisadosRating= document.querySelectorAll('.btnGuisadosRating');
+const btnGuisadoFinal= document.querySelectorAll('.btnGuisadoFinal');
+
 
 
 
@@ -8,11 +12,16 @@ auth.onAuthStateChanged(user =>{
     if(user){
         listaloggedinGuisados.forEach(item => item.style.display = 'block');
         listaloggedout.forEach(item => item.style.display = 'none');
+        listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
+        btnGuisadosRating.forEach(item => item.style.display = 'none');
+        btnGuisadoFinal.forEach(item => item.style.display = 'none');
         
     }else{
         listaloggedinGuisados.forEach(item => item.style.display = 'none');
         listaloggedout.forEach(item => item.style.display = 'block');
-        
+        listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
+        btnGuisadosRating.forEach(item => item.style.display = 'none');
+        btnGuisadoFinal.forEach(item => item.style.display = 'none');
     }
 });
 
