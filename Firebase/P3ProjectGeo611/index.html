@@ -13,7 +13,7 @@
 
     <style>
       
-      .logged-in, .logged-out{
+      .logged-in, .logged-out, .logged-in-map{
         display: block;
       }
 
@@ -33,7 +33,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-              <li class="nav-item logged-out">
+              <li class="nav-item logged-in">
                 <a class="nav-link" href="./pages/mapaGps.html" id="mapa">Mapa</a>
               </li>
 
@@ -43,6 +43,10 @@
 
               <li class="nav-item logged-out">
                 <a class="nav-link" href="./pages/tomarEncuesta.html" id="">Tomar Encuesta</a>
+              </li>
+
+              <li class="nav-item logged-out">
+                <a class="nav-link" href="./pages/mapaGps.html" id="">Mapa</a>
               </li>
 
               <li class="nav-item logged-in">
@@ -114,7 +118,7 @@
     </div>
   </div>
 
-  <div class="container logged-in">
+  <div class="container logged-in-map">
     <div class="row text-center" id="map">
         VA IR AL MAPA
     </div>
