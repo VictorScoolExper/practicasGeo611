@@ -11,7 +11,6 @@ btnMapa.addEventListener('click',(e)=>{
         console.log(err.message);
     });
     
-    console.log(snapshot.docs);
 
 });
 
@@ -33,8 +32,8 @@ const obtieneAmigos = (data) =>{
         informacion = new google.maps.InfoWindow;
 
         var pos = { 
-            lat: doc.data().coordenadas.latitude,
-            lng: doc.data().coordenadas.longitude
+            lat: Number(doc.data().coordenadas.latitude),
+            lng: Number(doc.data().coordenadas.longitude)
         };
 
         informacion.setPosition(pos);
