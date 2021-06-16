@@ -43,8 +43,8 @@ const obtieneAmigos = (data) =>{
        informacion = new google.maps.InfoWindow;
 
        var pos = { 
-           lat: Number(data.coordenadas.latitude),
-           lng: Number(data.coordenadas.longitude)
+           lat: Number(data.lat),
+           lng: Number(data.lng)
        };
 
        informacion.setPosition(pos);
