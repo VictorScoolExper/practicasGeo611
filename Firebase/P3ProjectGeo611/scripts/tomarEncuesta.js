@@ -120,6 +120,10 @@ btnPreSend.addEventListener('submit', (e)=>{
 
     alert("Se agrego la encuesta del dia de hoy a la base de datos!");
 
+    auth.signOut().then( ()=>{
+        alert('You have closed the sesion');
+    });
+
 })
 
 
