@@ -115,7 +115,7 @@ btnPreSend.addEventListener('submit', (e)=>{
         console.log("Document written with ID: ", docRef.id);
     })
     .catch((error) => {
-        console.error("Error adding document: ", error);
+        console.log("Error adding document: ", error);
     });
 
     alert("Se agrego la encuesta del dia de hoy a la base de datos!");
