@@ -48,7 +48,7 @@ const obtieneAmigos = (data) =>{
        };
 
        informacion.setPosition(pos);
-       informacion.setContent(doc.data().nombre);
+       informacion.setContent(data.nombre);
        informacion.open(map);
 
 
