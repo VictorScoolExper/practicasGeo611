@@ -10,6 +10,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <title>Survey Dimbasa</title>
+
+    <style>
+      
+      .logged-in, .logged-out{
+        display: block;
+      }
+
+      #map{
+          width: 100%;
+          height: 640px;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -102,6 +114,12 @@
     </div>
   </div>
 
+  <div class="container logged-in">
+    <div class="row text-center" id="map">
+        VA IR AL MAPA
+    </div>
+  </div>
+
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
@@ -112,6 +130,9 @@
 
     <script src="scripts/basedeDatos.js"></script>
     <script src="scripts/autorizacionIndex.js"></script>
+
+    <!-- Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAAlsJ2983bjDq3TMssdgYvf8qm-Fe_8" async defer></script>
 
   </body>
 </html>
