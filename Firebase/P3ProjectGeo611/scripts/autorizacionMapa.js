@@ -2,22 +2,19 @@ auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
         if(navigator.geolocation){
-            setInterval(()=>{
-                console.log("Hello")
-                navigator.geolocation.getCurrentPosition(position =>{
-                    var pos = {
-                        lat : position.coords.latitude,
-                        lng : position.coords.longitude
-                    };
-                    console.log(pos);
-        
-                    db.collection('usuarios').doc(user.uid).update({
-                        coordenadas : pos
-                    });
-        
+            
+            navigator.geolocation.getCurrentPosition(position =>{
+                var pos = {
+                    lat : position.coords.latitude,
+                    lng : position.coords.longitude
+                };
+                console.log(pos);
+    
+                db.collection('usuarios').doc(user.uid).update({
+                    coordenadas : pos
                 });
-            },1000);
-
+    
+            })
         }
         
         db.collection('usuarios').doc(user.uid).onSnapshot( snapshot =>{
@@ -31,8 +28,6 @@ auth.onAuthStateChanged(user =>{
         configurarMenu();
     }
 });
-
-
 
 const formLogin = document.getElementById('formLogin');
 
