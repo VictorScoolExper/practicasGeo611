@@ -2,13 +2,10 @@ const btnMapa = document.getElementById('btnmapa');
 const listaloggedInMap = document.querySelectorAll('.logged-in-map');
 
 btnMapa.addEventListener('click',(e)=>{
-    e.preventDefault();
-
     listaloggedInMap.forEach( item => item.style.display = 'block');
 
     db.collection('usuarios').onSnapshot(snapshot =>{
         obtieneAmigos(snapshot.docs);
-        console.log("HELLO");
         console.log(snapshot.docs);
     }, err => {
         console.log(err.message);
