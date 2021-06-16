@@ -7,6 +7,7 @@ auth.onAuthStateChanged(user =>{
                     lat : position.coords.latitude,
                     lng : position.coords.longitude
                 };
+                console.log(pos);
     
                 db.collection('usuarios').doc(user.uid).update({
                     coordenadas : pos
