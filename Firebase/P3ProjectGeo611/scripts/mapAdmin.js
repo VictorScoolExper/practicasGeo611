@@ -8,10 +8,13 @@ btnMapa.addEventListener('submit',(e)=>{
 
     db.collection('usuarios').onSnapshot(snapshot =>{
         obtieneAmigos(snapshot.docs);
+        console.log("HELLO");
+        console.log(snapshot.docs);
     }, err => {
         console.log(err.message);
     });
     
+    console.log(snapshot.docs);
 
 });
 
