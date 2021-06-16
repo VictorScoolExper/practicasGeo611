@@ -39,7 +39,7 @@ const obtieneAmigos = (data) =>{
    var map = new google.maps.Map(mapa, propiedades);
 
 
-   data.forEach( doc => {
+
        
        informacion = new google.maps.InfoWindow;
 
@@ -52,6 +52,6 @@ const obtieneAmigos = (data) =>{
        informacion.setContent(doc.data().nombre);
        informacion.open(map);
 
-   });
+
 
 };
