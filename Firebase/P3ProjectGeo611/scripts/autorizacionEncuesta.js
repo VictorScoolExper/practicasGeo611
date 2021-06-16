@@ -12,7 +12,7 @@ auth.onAuthStateChanged(user =>{
     if(user){
         listaloggedinGuisados.forEach(item => item.style.display = 'block');
         listaloggedout.forEach(item => item.style.display = 'none');
-        listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
+        listaloggedinIngresaGuisados.forEach(item => item.style.display = 'block');
         btnGuisadosRating.forEach(item => item.style.display = 'none');
         btnGuisadoFinal.forEach(item => item.style.display = 'none');
         
