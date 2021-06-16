@@ -1,7 +1,7 @@
 const btnMapa = document.getElementById('btnmapa');
 
 btnMapa.addEventListener('click',(e)=>{
-    //listaloggedInMap.forEach( item => item.style.display = 'none');
+    listaloggedInMap.forEach( item => item.style.display = 'block');
 
     db.collection('usuarios').onSnapshot(snapshot =>{
         obtieneAmigos(snapshot.docs);

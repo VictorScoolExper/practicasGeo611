@@ -7,11 +7,11 @@ auth.onAuthStateChanged(user =>{
     if(user){
         listaloggedin.forEach(item => item.style.display = 'block');
         listaloggedout.forEach(item => item.style.display = 'none');
-        listaloggedInMap.forEach( item => item.style.display = 'block');
+        listaloggedInMap.forEach( item => item.style.display = 'none');
     }else{
         listaloggedin.forEach(item => item.style.display = 'none');
         listaloggedout.forEach(item => item.style.display = 'block');
-        listaloggedInMap.forEach( item => item.style.display = 'block');
+        listaloggedInMap.forEach( item => item.style.display = 'none');
     }
 });
 
