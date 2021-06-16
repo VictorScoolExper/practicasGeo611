@@ -23,7 +23,6 @@ formguisado.addEventListener('submit', (e)=>{
 
     alert("Seguro? cerrar si seguro.");
 
-    $('#guisadoModal').modal('dispose');
     
 });
 
@@ -40,7 +39,7 @@ btnfrown1.addEventListener('click',(e)=>{
     rateCountFrown1 = rateCountFrown1 + 1;
 
     //console.log(rateCountFrown1);
-    $('#ratingModalGuisado1').modal('hide');
+    alert("Gracias por su voto!, cerrar por favor!");
 });
 
 btnstraight1.addEventListener('click',(e)=>{
@@ -50,7 +49,7 @@ btnstraight1.addEventListener('click',(e)=>{
 
     //console.log(rateCountStraight1);
 
-    $('#ratingModalGuisado1').modal('hide');
+    alert("Gracias por su voto!, cerrar por favor!");
 });
 
 btnSmile1.addEventListener('click', (e)=>{
@@ -59,7 +58,7 @@ btnSmile1.addEventListener('click', (e)=>{
     rateCountSmile1 = rateCountSmile1 + 1;
 
     //console.log(rateCountSmile1);
-    $('#ratingModalGuisado1').modal('hide');
+    alert("Gracias por su voto!, cerrar por favor!");
 })
 
 
@@ -75,7 +74,7 @@ btnfrown2.addEventListener('click',(e)=>{
 
     rateCountFrown2 = rateCountFrown2 + 1;
 
-    $('#ratingModalGuisado2').modal('hide');
+    alert("Gracias por su voto!, cerrar por favor!");
 });
 
 btnstraight2.addEventListener('click',(e)=>{
@@ -84,7 +83,7 @@ btnstraight2.addEventListener('click',(e)=>{
     rateCountStraight2 = rateCountStraight2 + 1;
 
     console.log(rateCountStraight2);
-    $('#ratingModalGuisado2').modal('hide');
+    alert("Gracias por su voto!, cerrar por favor!");
 });
 
 btnSmile2.addEventListener('click', (e)=>{
@@ -93,7 +92,7 @@ btnSmile2.addEventListener('click', (e)=>{
     rateCountSmile2 = rateCountSmile2 + 1;
 
     console.log(rateCountSmile2);
-    $('#ratingModalGuisado2').modal('hide');
+    alert("Gracias por su voto!, cerrar por favor!");
 });
 
 const btnPreSend = document.getElementById('btnPreSend');
