@@ -21,6 +21,7 @@ formguisado.addEventListener('submit', (e)=>{
 
     btnGuisadosRating.forEach(item => item.style.display = 'block');
     btnGuisadoFinal.forEach(item => item.style.display = 'block');
+    listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
 
     $('#guisadoModal').modal('hide');
 });
