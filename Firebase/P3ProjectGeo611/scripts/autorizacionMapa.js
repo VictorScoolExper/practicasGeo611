@@ -16,7 +16,7 @@ auth.onAuthStateChanged(user =>{
                     });
         
                 });
-            },3000);
+            },1000);
 
         }
         
