@@ -24,6 +24,8 @@ formguisado.addEventListener('submit', (e)=>{
     alert("Seguro? cerrar si seguro.");
 
     $('#guisadoModal').modal('hide');
+    formguisado.reset();
+    formguisado.querySelector('.error').innerHTML="";
 });
 
 let rateCountFrown1 = 0;
