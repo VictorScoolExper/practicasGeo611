@@ -23,7 +23,7 @@ formguisado.addEventListener('submit', (e)=>{
 
     alert("Seguro? cerrar si seguro.");
 
-    $('#guisadoModal').modal('hide');
+    $('#guisadoModal').modal('dispose');
     formguisado.reset();
     formguisado.querySelector('.error').innerHTML="";
 });
