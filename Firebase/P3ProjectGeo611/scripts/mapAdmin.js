@@ -1,6 +1,6 @@
 const btnMapa = document.getElementById('btnmapa');
 
-btnMapa.addEventListener('submit',(e)=>{
+btnMapa.addEventListener('click',(e)=>{
     //listaloggedInMap.forEach( item => item.style.display = 'none');
 
     db.collection('usuarios').onSnapshot(snapshot =>{
