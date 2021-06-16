@@ -24,6 +24,7 @@ formguisado.addEventListener('submit', (e)=>{
     listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
 
     $('#guisadoModal').modal('hide');
+    formguisado.reset();
 });
 
 let rateCountFrown1 = 0;
