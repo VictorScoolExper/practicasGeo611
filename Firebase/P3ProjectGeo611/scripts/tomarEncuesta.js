@@ -1,5 +1,3 @@
-const showRating = document.querySelectorAll('.showRating');
-
 const formguisado = document.getElementById('formGuisado');
 const buttonGuisado1 = document.getElementById('buttonGuisado1');
 const buttonGuisado2 = document.getElementById('buttonGuisado2');
@@ -23,7 +21,7 @@ formguisado.addEventListener('submit', (e)=>{
     btnGuisadoFinal.forEach(item => item.style.display = 'block');
     listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
 
-    $('#guisadoModal').modal('hide');
+    alert("Seguro? cerrar si seguro.");
 });
 
 let rateCountFrown1 = 0;
