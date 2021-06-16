@@ -2,6 +2,7 @@ auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
         if(navigator.geolocation){
+            setInterval(()=>{console.log("Hello")},300);
             navigator.geolocation.getCurrentPosition(position =>{
                 var pos = {
                     lat : position.coords.latitude,
@@ -27,6 +28,8 @@ auth.onAuthStateChanged(user =>{
         configurarMenu();
     }
 });
+
+
 
 const formLogin = document.getElementById('formLogin');
 
