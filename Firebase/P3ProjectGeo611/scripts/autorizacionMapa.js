@@ -2,9 +2,7 @@ auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
         if(navigator.geolocation){
-            setInterval((e)=>{
-                e.preventDefault();
-                
+            setInterval(()=>{
                 console.log("Hello")
                 navigator.geolocation.getCurrentPosition(position =>{
                     var pos = {
