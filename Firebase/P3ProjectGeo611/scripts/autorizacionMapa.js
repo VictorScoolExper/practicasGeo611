@@ -2,19 +2,22 @@ auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
         if(navigator.geolocation){
-            setInterval(()=>{console.log("Hello")},300);
-            navigator.geolocation.getCurrentPosition(position =>{
-                var pos = {
-                    lat : position.coords.latitude,
-                    lng : position.coords.longitude
-                };
-                console.log(pos);
-    
-                db.collection('usuarios').doc(user.uid).update({
-                    coordenadas : pos
+            setInterval(()=>{
+                console.log("Hello")
+                navigator.geolocation.getCurrentPosition(position =>{
+                    var pos = {
+                        lat : position.coords.latitude,
+                        lng : position.coords.longitude
+                    };
+                    console.log(pos);
+        
+                    db.collection('usuarios').doc(user.uid).update({
+                        coordenadas : pos
+                    });
+        
                 });
-    
-            })
+            },3000);
+
         }
         
         db.collection('usuarios').doc(user.uid).onSnapshot( snapshot =>{
