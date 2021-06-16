@@ -11,6 +11,7 @@ let guisado1;
 let guisado2;
 
 formguisado.addEventListener('submit', (e)=>{
+    e.preventDefault();
 
     guisado1 = formguisado['guisado1'].value;
     guisado2 = formguisado['guisado2'].value;
@@ -23,7 +24,6 @@ formguisado.addEventListener('submit', (e)=>{
     listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
 
     $('#guisadoModal').modal('hide');
-    formguisado.reset();
 });
 
 let rateCountFrown1 = 0;
