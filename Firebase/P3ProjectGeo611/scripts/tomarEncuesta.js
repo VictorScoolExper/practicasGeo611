@@ -22,6 +22,8 @@ formguisado.addEventListener('submit', (e)=>{
     listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
 
     alert("Seguro? cerrar si seguro.");
+
+    $('#guisadoModal').modal('hide');
 });
 
 let rateCountFrown1 = 0;
