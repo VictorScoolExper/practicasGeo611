@@ -9,22 +9,18 @@ const obtieneDiasEncuesta = (data) => {
 
             const columna =`
                 <div class="col-12 col-md-4">
-                    <h4>${encuesta.timestamp}</h4>
+                    <h6>${Date(encuesta.timestamp)}</h6>
                     
                     <div class="col-6">
                         <div class="col-12">
                             <p class="text-danger">Platillo del #1 ${encuesta.guisadoUno}</p> 
                         </div>
 
-                        <div class="col-3">
+                        <div class="row">
                             <p Puntos menos de 1 ${encuesta.gui1rating1} />
-                        </div>
-
-                        <div class="col-3">
+                    
                             <p Puntos menos de 2 ${encuesta.gui1rating2} />
-                        </div>
-
-                        <div class="col-3">
+                        
                             <p Puntos menos de 3 ${encuesta.gui1rating3} />
                         </div>
                     
