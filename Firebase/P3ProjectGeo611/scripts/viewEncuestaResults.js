@@ -13,46 +13,38 @@ const obtieneDiasEncuesta = (data) => {
                     
                     <div class="col-6">
                         <div class="col-12">
-                            <p class="text-danger">Platillo del #1 ${encuesta.nombreGuisadoUno}</p> 
+                            <p class="text-danger">Platillo del #1 ${encuesta.guisadoUno}</p> 
                         </div>
 
                         <div class="col-3">
-                            <p Puntos menos de 1 ${encuesta.cali1One} />
+                            <p Puntos menos de 1 ${encuesta.gui1rating1} />
                         </div>
 
                         <div class="col-3">
-                            <p Puntos menos de 2 ${encuesta.cali1Two} />
+                            <p Puntos menos de 2 ${encuesta.gui1rating2} />
                         </div>
 
                         <div class="col-3">
-                            <p Puntos menos de 3 ${encuesta.cali1Three} />
-                        </div>
-
-                        <div class="col-3">
-                            <p Puntos menos de 3 ${encuesta.cali1Four} />
+                            <p Puntos menos de 3 ${encuesta.gui1rating3} />
                         </div>
                     
                     </div> 
 
                     <div class="col-6">
                         <div class="col-12">
-                            <p class="text-danger">Platillo del #1 ${encuesta.nombrePlatilloTwo}</p> 
+                            <p class="text-danger">Platillo del #1 ${encuesta.guisadoDos}</p> 
                         </div>
 
                         <div class="col-3">
-                            <p Puntos menos de 1 ${encuesta.cali2One} />
+                            <p Puntos menos de 1 ${encuesta.gui2rating1} />
                         </div>
 
                         <div class="col-3">
-                            <p Puntos menos de 2 ${encuesta.cali2Two} />
+                            <p Puntos menos de 2 ${encuesta.gui2rating2} />
                         </div>
 
                         <div class="col-3">
-                            <p Puntos menos de 3 ${encuesta.cali2Three} />
-                        </div>
-
-                        <div class="col-3">
-                            <p Puntos menos de 3 ${encuesta.cali2Four} />
+                            <p Puntos menos de 3 ${encuesta.gui2rating3} />
                         </div>
                     
                     </div> 
@@ -69,6 +61,6 @@ const obtieneDiasEncuesta = (data) => {
         listadeEncuestas.innerHTML = html;
     } 
     else {
-        listadeEncuestas.innerHTML = '<p class="text-center"> To see items please enter with account </p>'
+        listadeEncuestas.innerHTML = '<p class="text-center"> No hay resultados de encuesta </p>'
     }
 };

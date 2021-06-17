@@ -8,6 +8,12 @@ auth.onAuthStateChanged(user =>{
         listaloggedin.forEach(item => item.style.display = 'block');
         listaloggedout.forEach(item => item.style.display = 'none');
         listaloggedInMap.forEach( item => item.style.display = 'none');
+        db.collection('guisados').onSnapshot(snapshot =>{
+            obtienePlatillos(snapshot.docs);
+        }, err => {
+            console.log(err.message);
+        });
+
     }else{
         listaloggedin.forEach(item => item.style.display = 'none');
         listaloggedout.forEach(item => item.style.display = 'block');
