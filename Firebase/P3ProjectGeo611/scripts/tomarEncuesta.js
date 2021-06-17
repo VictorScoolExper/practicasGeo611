@@ -103,10 +103,24 @@ btnSmile2.addEventListener('click', (e)=>{
 });
 
 const btnPreSend = document.getElementById('btnPreSend');
-
+var pos = {
+    lat : 0,
+    lng : 0
+};
 btnPreSend.addEventListener('click', (e)=>{
     e.preventDefault();
-    // Add a new document with a generated id.
+    // Add a new document with a generated id that gets location
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(position =>{
+            pos = {
+                lat : position.coords.latitude,
+                lng : position.coords.longitude
+            };
+            console.log(pos);
+
+        })
+    }
+
     db.collection("guisados").add({
         guisadoUno: guisado1,
         gui1rating1: rateCountFrown1,
@@ -116,6 +130,7 @@ btnPreSend.addEventListener('click', (e)=>{
         gui2rating1: rateCountFrown2,
         gui2rating2: rateCountStraight2,
         gui2rating3: rateCountSmile2,
+        coordenadas : pos,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
     .then((docRef) => {
