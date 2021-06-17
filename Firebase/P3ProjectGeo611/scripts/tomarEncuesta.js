@@ -21,7 +21,7 @@ formguisado.addEventListener('submit', (e)=>{
     btnGuisadoFinal.forEach(item => item.style.display = 'block');
     listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
 
-    alert("Seguro? cerrar si seguro.");
+    alert("Ya se agrego los guisados!");
     
     $('#guisadoModal').modal('hide');
     
@@ -40,7 +40,7 @@ btnfrown1.addEventListener('click',(e)=>{
     rateCountFrown1 = rateCountFrown1 + 1;
 
     //console.log(rateCountFrown1);
-    alert("Gracias por su voto!, cerrar por favor!");
+    alert("Gracias por su voto!");
     $('#ratingModalGuisado1').modal('hide');
 });
 
@@ -51,7 +51,7 @@ btnstraight1.addEventListener('click',(e)=>{
 
     //console.log(rateCountStraight1);
 
-    alert("Gracias por su voto!, cerrar por favor!");
+    alert("Gracias por su voto!");
     $('#ratingModalGuisado1').modal('hide');
 });
 
@@ -61,7 +61,7 @@ btnSmile1.addEventListener('click', (e)=>{
     rateCountSmile1 = rateCountSmile1 + 1;
 
     //console.log(rateCountSmile1);
-    alert("Gracias por su voto!, cerrar por favor!");
+    alert("Gracias por su voto!");
     $('#ratingModalGuisado1').modal('hide');
 })
 
@@ -78,7 +78,7 @@ btnfrown2.addEventListener('click',(e)=>{
 
     rateCountFrown2 = rateCountFrown2 + 1;
 
-    alert("Gracias por su voto!, cerrar por favor!");
+    alert("Gracias por su voto!");
     $('#ratingModalGuisado2').modal('hide');
 });
 
@@ -88,7 +88,7 @@ btnstraight2.addEventListener('click',(e)=>{
     rateCountStraight2 = rateCountStraight2 + 1;
 
     console.log(rateCountStraight2);
-    alert("Gracias por su voto!, cerrar por favor!");
+    alert("Gracias por su voto!");
     $('#ratingModalGuisado2').modal('hide');
 });
 
@@ -98,7 +98,7 @@ btnSmile2.addEventListener('click', (e)=>{
     rateCountSmile2 = rateCountSmile2 + 1;
 
     console.log(rateCountSmile2);
-    alert("Gracias por su voto!, cerrar por favor!");
+    alert("Gracias por su voto!");
     $('#ratingModalGuisado2').modal('hide');
 });
 
