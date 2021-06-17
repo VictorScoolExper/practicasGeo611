@@ -9,7 +9,7 @@ auth.onAuthStateChanged(user =>{
         listaloggedout.forEach(item => item.style.display = 'none');
         listaloggedInMap.forEach( item => item.style.display = 'none');
         db.collection('guisados').onSnapshot(snapshot =>{
-            obtienePlatillos(snapshot.docs);
+            obtieneDiasEncuesta(snapshot.docs);
         }, err => {
             console.log(err.message);
         });
