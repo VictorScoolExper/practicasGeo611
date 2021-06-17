@@ -104,7 +104,7 @@ btnSmile2.addEventListener('click', (e)=>{
 
 const btnPreSend = document.getElementById('btnPreSend');
 
-btnPreSend.addEventListener('submit', (e)=>{
+btnPreSend.addEventListener('click', (e)=>{
     e.preventDefault();
     // Add a new document with a generated id.
     db.collection("guisados").add({
