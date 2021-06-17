@@ -103,10 +103,7 @@ btnSmile2.addEventListener('click', (e)=>{
 });
 
 const btnPreSend = document.getElementById('btnPreSend');
-var pos = {
-    lat : 0,
-    lng : 0
-};
+
 btnPreSend.addEventListener('click', (e)=>{
     e.preventDefault();
     // Add a new document with a generated id that gets location
@@ -118,27 +115,29 @@ btnPreSend.addEventListener('click', (e)=>{
             };
             console.log(pos);
 
+            db.collection("guisados").add({
+                guisadoUno: guisado1,
+                gui1rating1: rateCountFrown1,
+                gui1rating2: rateCountStraight1,
+                gui1rating3: rateCountSmile1,
+                guisadoDos: guisado2,
+                gui2rating1: rateCountFrown2,
+                gui2rating2: rateCountStraight2,
+                gui2rating3: rateCountSmile2,
+                coordenadas : pos,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+                console.log("Error adding document: ", error);
+            });
+
         })
     }
 
-    db.collection("guisados").add({
-        guisadoUno: guisado1,
-        gui1rating1: rateCountFrown1,
-        gui1rating2: rateCountStraight1,
-        gui1rating3: rateCountSmile1,
-        guisadoDos: guisado2,
-        gui2rating1: rateCountFrown2,
-        gui2rating2: rateCountStraight2,
-        gui2rating3: rateCountSmile2,
-        coordenadas : pos,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    })
-    .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
-    })
-    .catch((error) => {
-        console.log("Error adding document: ", error);
-    });
+    
 
     alert("Se agrego la encuesta del dia de hoy a la base de datos!");
 
