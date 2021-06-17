@@ -9,7 +9,7 @@ const obtieneDiasEncuesta = (data) => {
 
             const columna =`
                 <div class="col-12 col-md-4">
-                    <h4>${encuesta.fecha}</h4>
+                    <h4>${encuesta.timestamp}</h4>
                     
                     <div class="col-6">
                         <div class="col-12">
