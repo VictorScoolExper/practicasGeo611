@@ -24,8 +24,7 @@ auth.onAuthStateChanged(user =>{
         configurarMenu(user);
 
     }else{
-        obtieneAmigos([]);
-        configurarMenu();
+        
     }
 });
 
@@ -77,6 +76,5 @@ salir.addEventListener('click', (e)=>{
     auth.signOut().then( ()=>{
             alert('You have closed the sesion');
     });
-    obtienePlatillos([]);
 });
 
