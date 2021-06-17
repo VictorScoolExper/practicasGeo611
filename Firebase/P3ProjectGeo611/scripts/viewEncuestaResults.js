@@ -8,43 +8,30 @@ const obtieneDiasEncuesta = (data) => {
             const encuesta = doc.data();
 
             const columna =`
-                <div class="col-12 col-md-4">
-                    <h6>${Date(encuesta.timestamp)}</h6>
-                    
-                    <div class="col-6">
-                        <div class="col-12">
-                            <p class="text-danger">Platillo del #1 ${encuesta.guisadoUno}</p> 
-                        </div>
+                    <div class="card" class="col-4">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <div class="row">
+                            <div class="col-12">
+                                <h6>${Date(encuesta.timestamp)}</h6>
+                            </div>
+                            <div class="col-6">
+                                <h6>${encuesta.guisadoUno}</h6>
+                                <p>rating 1: ${String(encuesta.gui1rating1)}</p>
+                                <p>rating 1: ${String(encuesta.gui1rating2)}</p>
+                                <p>rating 1: ${String(encuesta.gui1rating3)}</p>
+                            </div>
+                            <div class="col-6">
+                                <h6>${encuesta.guisadoDos}</h6>
+                                <p>rating 1: ${String(encuesta.gui2rating1)} </p>
+                                <p>rating 1: ${String(encuesta.gui2rating2)}</p>
+                                <p>rating 1: ${String(encuesta.gui2rating3)}</p>
+                            </div>
 
-                        <div class="row">
-                            <p Puntos menos de 1 ${encuesta.gui1rating1} />
-                    
-                            <p Puntos menos de 2 ${encuesta.gui1rating2} />
-                        
-                            <p Puntos menos de 3 ${encuesta.gui1rating3} />
+                            </div>
                         </div>
-                    
-                    </div> 
-
-                    <div class="col-6">
-                        <div class="col-12">
-                            <p class="text-danger">Platillo del #1 ${encuesta.guisadoDos}</p> 
-                        </div>
-
-                        <div class="row">
-                            <p Puntos menos de 1 ${encuesta.gui2rating1} />
-                        
-                            <p Puntos menos de 2 ${encuesta.gui2rating2} />
-                        
-                            <p Puntos menos de 3 ${encuesta.gui2rating3} />
-                        </div>
-                    
-                    </div> 
-                    
-                    
-                </div>
-            
-            `;
+                    </div>
+                    `;
 
             html += columna;
 
