@@ -31,15 +31,11 @@ const obtieneDiasEncuesta = (data) => {
                             <p class="text-danger">Platillo del #1 ${encuesta.guisadoDos}</p> 
                         </div>
 
-                        <div class="col-3">
+                        <div class="row">
                             <p Puntos menos de 1 ${encuesta.gui2rating1} />
-                        </div>
-
-                        <div class="col-3">
+                        
                             <p Puntos menos de 2 ${encuesta.gui2rating2} />
-                        </div>
-
-                        <div class="col-3">
+                        
                             <p Puntos menos de 3 ${encuesta.gui2rating3} />
                         </div>
                     
