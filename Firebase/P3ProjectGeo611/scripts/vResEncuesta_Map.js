@@ -81,8 +81,8 @@ const obtieneTrabajadores = (data) =>{
         informacion = new google.maps.InfoWindow;
 
         var pos = { 
-            lat: Number(doc.data().coordenadas.latitude),
-            lng: Number(doc.data().coordenadas.longitude)
+            lat: Number(data.coordenadas.lat),
+            lng: Number(data.coordenadas.lng)
         };
 
         informacion.setPosition(pos);
