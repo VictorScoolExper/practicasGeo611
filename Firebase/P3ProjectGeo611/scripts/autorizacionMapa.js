@@ -1,3 +1,6 @@
+const listaloggedout = document.querySelectorAll('.logged-out');
+const listaloggedin = document.querySelectorAll('.logged-in');
+
 auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
@@ -21,10 +24,13 @@ auth.onAuthStateChanged(user =>{
             obtieneAmigos(snapshot.data());
             console.log(snapshot.data());
         });
-        configurarMenu(user);
+        
+        listaloggedin.forEach( item => item.style.display = 'block');
+        listaloggedout.forEach( item => item.style.display = 'none');
 
     }else{
-        
+        listaloggedin.forEach( item => item.style.display = 'none');
+       listaloggedout.forEach( item => item.style.display = 'block');
     }
 });
 
