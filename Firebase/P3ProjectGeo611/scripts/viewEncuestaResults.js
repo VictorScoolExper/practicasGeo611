@@ -1,4 +1,11 @@
-const listadeEncuestas = document.getElementById('listadeEncuestas');
+
+const btnRevisarEnuesta = document.getElementById('btnRevisarEnuesta');
+
+btnRevisarEnuesta.addEventListener('submit',(e)=>{
+    e.preventDefault();
+    mapActivate.forEach(item => item.style.display = 'none');
+    listaEncuesta.forEach(item => item.style.display = 'block');
+});
 
 const obtieneDiasEncuesta = (data) => {
     if(data.length){
@@ -49,9 +56,9 @@ const btnmapa = document.getElementById('btnmapa');
 btnmapa.addEventListener('submit',(e)=>{
     e.preventDefault();
 
-    db.collection('usuarios').doc(user.uid).onSnapshot( snapshot =>{
-        obtieneTrabajadores(snapshot.data());
-    });
+
+    mapActivate.forEach(item => item.style.display = 'block');
+    listaEncuesta.forEach(item => item.style.display = 'none');
 });
 
 const obtieneTrabajadores = (data) =>{

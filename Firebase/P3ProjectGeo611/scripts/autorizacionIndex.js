@@ -1,13 +1,17 @@
 const listaloggedout = document.querySelectorAll('.logged-out');
 const listaloggedin = document.querySelectorAll('.logged-in');
-const listaloggedInMap = document.querySelectorAll('.logged-in-map');
+const listaEncuesta = document.querySelectorAll('.listaEncuesta');
+const mapActivate = document.querySelectorAll('.mapActivate');
+
+
 
 auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){
         listaloggedin.forEach(item => item.style.display = 'block');
         listaloggedout.forEach(item => item.style.display = 'none');
-        listaloggedInMap.forEach( item => item.style.display = 'none');
+        listaEncuesta.forEach(item => item.style.display = 'block');
+        mapActivate.forEach(item => item.style.display = 'none');
         db.collection('guisados').onSnapshot(snapshot =>{
             obtieneDiasEncuesta(snapshot.docs);
         }, err => {
@@ -17,7 +21,8 @@ auth.onAuthStateChanged(user =>{
     }else{
         listaloggedin.forEach(item => item.style.display = 'none');
         listaloggedout.forEach(item => item.style.display = 'block');
-        listaloggedInMap.forEach( item => item.style.display = 'block');
+        listaEncuesta.forEach(item => item.style.display = 'none');
+        mapActivate.forEach(item => item.style.display = 'none');
     }
 });
 
