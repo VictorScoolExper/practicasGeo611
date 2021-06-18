@@ -4,16 +4,6 @@ const datosdelacuenta = document.querySelector('.datosdelacuenta');
 
 const configurarMenu = (user) => {
     if(user){
-       /*db.collection('usuarios').doc(user.uid).get().then( doc =>{
-           const html = `
-               <p>Nombre: ${ doc.data().nombre }</p>
-               <p>Correo: ${ user.email}</p>
-               <p>Teléfono: ${ doc.data().telefono }</p>
-               <p>Dirección: ${ doc.data().direccion }</p>
-               <p>Coordenadas: ${ doc.data().coordenadas.latitude } , ${ doc.data().coordenadas.longitude }</p>
-           `;
-           datosdelacuenta.innerHTML = html;
-       });*/
 
        listaloggedin.forEach( item => item.style.display = 'block');
        listaloggedout.forEach( item => item.style.display = 'none');
