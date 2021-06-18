@@ -22,7 +22,7 @@ formguisado.addEventListener('submit', (e)=>{
     listaloggedinIngresaGuisados.forEach(item => item.style.display = 'none');
 
     alert("Ya se agrego los guisados!");
-    
+    formguisado.reset();
     $('#guisadoModal').modal('hide');
     
 });
