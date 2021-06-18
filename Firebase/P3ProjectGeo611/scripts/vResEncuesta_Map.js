@@ -21,7 +21,7 @@ const obtieneDiasEncuesta = (data) => {
                                 <div class="card-body">
                                     <div class="row">
                                     <div class="col-12">
-                                        <h6>La de los votos fueron${Date(encuesta.timestamp)}</h6>
+                                        <h6>Fecha de votos fueron ${Date(encuesta.timestamp)}</h6>
                                     </div>
                                     <div class="col-6">
                                         <h6>El rating del Guisado de ${encuesta.guisadoUno}</h6>
