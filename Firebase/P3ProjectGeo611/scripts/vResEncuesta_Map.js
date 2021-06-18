@@ -17,7 +17,7 @@ const obtieneDiasEncuesta = (data) => {
             const encuesta = doc.data();
 
             const columna =`
-                            <div class="card" class="col-4">
+                            <div class="card p-2" class="col-12">
                                 <div class="card-body">
                                     <div class="row">
                                     <div class="col-12">
