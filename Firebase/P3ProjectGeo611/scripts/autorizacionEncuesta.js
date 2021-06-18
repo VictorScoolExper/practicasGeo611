@@ -5,8 +5,6 @@ const btnGuisadosRating= document.querySelectorAll('.btnGuisadosRating');
 const btnGuisadoFinal= document.querySelectorAll('.btnGuisadoFinal');
 
 
-
-
 auth.onAuthStateChanged(user =>{
     console.log(user);
     if(user){

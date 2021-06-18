@@ -3,7 +3,7 @@ const mapActivate = document.querySelectorAll('.mapActivate');
 
 const btnRevisarEnuesta = document.getElementById('btnRevisarEnuesta');
 
-btnRevisarEnuesta.addEventListener('submit',(e)=>{
+btnRevisarEnuesta.addEventListener('click',(e)=>{
     e.preventDefault();
     mapActivate.forEach(item => item.style.display = 'none');
     listaEncuesta.forEach(item => item.style.display = 'block');
@@ -55,7 +55,7 @@ const obtieneDiasEncuesta = (data) => {
 
 const btnmapa = document.getElementById('btnmapa');
 
-btnmapa.addEventListener('submit',(e)=>{
+btnmapa.addEventListener('click',(e)=>{
     e.preventDefault();
 
 
