@@ -1,5 +1,5 @@
-const listaEncuesta = document.querySelectorAll('.listaEncuesta');
-const mapActivate = document.querySelectorAll('.mapActivate');
+//const listaEncuesta = document.querySelectorAll('.listaEncuesta');
+//const mapActivate = document.querySelectorAll('.mapActivate');
 
 const btnRevisarEnuesta = document.getElementById('btnRevisarEnuesta');
 
