@@ -73,6 +73,9 @@ const salir = document.getElementById('salir');
 salir.addEventListener('click', (e)=>{
     e.preventDefault();
 
+    listaloggedin.forEach( item => item.style.display = 'none');
+    listaloggedout.forEach( item => item.style.display = 'block');
+
     auth.signOut().then( ()=>{
             alert('You have closed the sesion');
     });
