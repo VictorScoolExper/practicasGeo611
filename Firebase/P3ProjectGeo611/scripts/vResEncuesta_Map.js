@@ -86,7 +86,7 @@ const obtieneTrabajadores = (data) =>{
         };
 
         informacion.setPosition(pos);
-        informacion.setContent("Juan");
+        informacion.setContent(doc.data().nombre);
         informacion.open(map);
 
     });
