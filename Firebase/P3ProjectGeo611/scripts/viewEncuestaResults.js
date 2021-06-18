@@ -7,8 +7,8 @@ const obtieneDiasEncuesta = (data) => {
         data.forEach( doc => {
             const encuesta = doc.data();
             pos = {
-                lat : encuesta.coords.lat,
-                lng : encuesta.coords.lng
+                lat : encuesta.coordenadas.lat,
+                lng : encuesta.coordenadas.lng
             };
             const columna =`
                             <div class="card" class="col-4">
