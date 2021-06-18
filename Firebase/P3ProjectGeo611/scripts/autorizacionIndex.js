@@ -14,6 +14,10 @@ auth.onAuthStateChanged(user =>{
         mapActivate.forEach(item => item.style.display = 'none');
         db.collection('guisados').onSnapshot(snapshot =>{
             obtieneDiasEncuesta(snapshot.docs);
+        }, err => {
+            console.log(err.message);
+        });
+        db.collection('usuarios').onSnapshot(snapshot =>{
             obtieneTrabajadores(snapshot.docs);
         }, err => {
             console.log(err.message);
