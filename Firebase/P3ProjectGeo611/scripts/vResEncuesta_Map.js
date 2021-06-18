@@ -33,7 +33,7 @@ const obtieneDiasEncuesta = (data) => {
                                         <h6>El rating del Guisado de ${encuesta.guisadoDos}</h6>
                                         <p>cantidad de votos para nivel 1: ${String(encuesta.gui2rating1)} </p>
                                         <p>cantidad de votos para nivel 2: ${String(encuesta.gui2rating2)}</p>
-                                        <p>cantidad de votos para nivel 2: ${String(encuesta.gui2rating3)}</p>
+                                        <p>cantidad de votos para nivel 3: ${String(encuesta.gui2rating3)}</p>
                                     </div>
 
                                     </div>
