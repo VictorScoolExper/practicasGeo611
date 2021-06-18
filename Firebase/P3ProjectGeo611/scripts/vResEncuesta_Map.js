@@ -21,19 +21,19 @@ const obtieneDiasEncuesta = (data) => {
                                 <div class="card-body">
                                     <div class="row">
                                     <div class="col-12">
-                                        <h6>${Date(encuesta.timestamp)}</h6>
+                                        <h6>La de los votos fueron${Date(encuesta.timestamp)}</h6>
                                     </div>
                                     <div class="col-6">
-                                        <h6>Guisado de ${encuesta.guisadoUno}</h6>
-                                        <p>rating 1: ${String(encuesta.gui1rating1)}</p>
-                                        <p>rating 1: ${String(encuesta.gui1rating2)}</p>
-                                        <p>rating 1: ${String(encuesta.gui1rating3)}</p>
+                                        <h6>El rating del Guisado de ${encuesta.guisadoUno}</h6>
+                                        <p>cantidad de votos para nivel 1: ${String(encuesta.gui1rating1)}</p>
+                                        <p>cantidad de votos para nivel 2: ${String(encuesta.gui1rating2)}</p>
+                                        <p>cantidad de votos para nivel 3: ${String(encuesta.gui1rating3)}</p>
                                     </div>
                                     <div class="col-6">
-                                        <h6>Guisado de ${encuesta.guisadoDos}</h6>
-                                        <p>rating 1: ${String(encuesta.gui2rating1)} </p>
-                                        <p>rating 1: ${String(encuesta.gui2rating2)}</p>
-                                        <p>rating 1: ${String(encuesta.gui2rating3)}</p>
+                                        <h6>El rating del Guisado de ${encuesta.guisadoDos}</h6>
+                                        <p>cantidad de votos para nivel 1: ${String(encuesta.gui2rating1)} </p>
+                                        <p>cantidad de votos para nivel 2: ${String(encuesta.gui2rating2)}</p>
+                                        <p>cantidad de votos para nivel 2: ${String(encuesta.gui2rating3)}</p>
                                     </div>
 
                                     </div>
