@@ -15,13 +15,13 @@ const obtieneDiasEncuesta = (data) => {
                                         <h6>${Date(encuesta.timestamp)}</h6>
                                     </div>
                                     <div class="col-6">
-                                        <h6>${encuesta.guisadoUno}</h6>
+                                        <h6>Guisado de ${encuesta.guisadoUno}</h6>
                                         <p>rating 1: ${String(encuesta.gui1rating1)}</p>
                                         <p>rating 1: ${String(encuesta.gui1rating2)}</p>
                                         <p>rating 1: ${String(encuesta.gui1rating3)}</p>
                                     </div>
                                     <div class="col-6">
-                                        <h6>${encuesta.guisadoDos}</h6>
+                                        <h6>Guisado de ${encuesta.guisadoDos}</h6>
                                         <p>rating 1: ${String(encuesta.gui2rating1)} </p>
                                         <p>rating 1: ${String(encuesta.gui2rating2)}</p>
                                         <p>rating 1: ${String(encuesta.gui2rating3)}</p>
